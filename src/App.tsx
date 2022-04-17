@@ -1,15 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import AuthorImage from "./images/author.jpg";
+import { getMovieListByTitle } from "./services/MovieService";
 
-function App() {
+const App = () => {
+  const [title, setTitle] = useState("");
+  const [onlineData, setOnlineData] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
+
+  const populate = () => {
+    setLoading(true);
+    // Get list from IMDB online
+    getMovieListByTitle(title, (response: any) => {
+      setOnlineData(response);
+      setLoading(false);
+    });
+  };
+
+  const onChangeTitle = (e: any) => {
+    setTitle(e.target.value);
+  };
+
   return (
     <div className="App">
-      <h1>Welcome to my React Application</h1>
-      <img src={AuthorImage} height="300" alt="" />
-      <h2>Author: Brajalal Pal</h2>
+      <div
+        style={{
+          backgroundColor: "lightblue",
+          height: "30px",
+          padding: "20px",
+        }}
+      >
+        <label htmlFor="liveSearch">
+          <b>Live Search (Enter any movie/people name):</b>
+        </label>
+        &nbsp;
+        <input
+          name="liveSearch"
+          type="text"
+          value={title}
+          onChange={onChangeTitle}
+          placeholder={"Enter title to Search"}
+        />
+        &nbsp;
+        <button className="btn btn-sm btn-primary" onClick={populate}>
+          Get List
+        </button>
+      </div>
+      <div
+        style={{
+          backgroundColor: "beige",
+          padding: "10px",
+          minHeight: "850px",
+        }}
+      >
+        <h2 style={{ textAlign: "left" }}>
+          {loading ? "Loading..." : "Search Result:"}
+        </h2>
+        {onlineData?.d?.map((m: any) => (
+          <React.Fragment key={m._id}>
+            <img
+              style={{ border: "2px solid gold", borderRadius: "5px" }}
+              src={m?.i?.imageUrl}
+              height={300}
+              alt=""
+            />
+          </React.Fragment>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
