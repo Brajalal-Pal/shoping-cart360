@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/shoping-cart360/static/css/main.073c9b0a.css",
-    "main.js": "/shoping-cart360/static/js/main.2616bcd4.js",
+    "main.js": "/shoping-cart360/static/js/main.f9032fc6.js",
     "static/js/787.467a3bcf.chunk.js": "/shoping-cart360/static/js/787.467a3bcf.chunk.js",
     "index.html": "/shoping-cart360/index.html",
     "main.073c9b0a.css.map": "/shoping-cart360/static/css/main.073c9b0a.css.map",
-    "main.2616bcd4.js.map": "/shoping-cart360/static/js/main.2616bcd4.js.map",
+    "main.f9032fc6.js.map": "/shoping-cart360/static/js/main.f9032fc6.js.map",
     "787.467a3bcf.chunk.js.map": "/shoping-cart360/static/js/787.467a3bcf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.2616bcd4.js"
+    "static/js/main.f9032fc6.js"
   ]
 }
